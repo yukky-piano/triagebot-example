@@ -15,6 +15,9 @@ function create(payload, messages, options) {
   let map = getRequest.bind(null, settings);
   let sort = (a, b) => a.priority - b.priority;
   let filter = m => m.emoji && !m.bot;
+  console.log(payload);
+  console.log(messages);
+  console.log(settings);
 
   let requests = messages.map(map).filter(filter).sort(sort);
   let message = buildMessage(payload, requests, settings);
